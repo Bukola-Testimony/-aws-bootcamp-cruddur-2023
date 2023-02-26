@@ -35,7 +35,7 @@ i started off week 0 by registering for all the tools that will be required for 
 
 <br>
 
-> [link to crudder-logical-diagram](https://lucid.app/lucidchart/7410a12d-52f8-4802-9a5a-e237c2b9f2e2/edit?viewport_loc=-388%2C1106%2C2650%2C1114%2C0_0&invitationId=inv_09b9623d-c82c-4a5f-964a-652a1f53cb39)
+> [Lucid Chart Share link](https://lucid.app/lucidchart/7410a12d-52f8-4802-9a5a-e237c2b9f2e2/edit?viewport_loc=-388%2C1106%2C2650%2C1114%2C0_0&invitationId=inv_09b9623d-c82c-4a5f-964a-652a1f53cb39)
 
 <br>
 
