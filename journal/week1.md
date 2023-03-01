@@ -140,17 +140,24 @@ aws dynamodb put-item \
     --return-consumed-capacity TOTAL  
 ```
 
+
+
 # List Tables
 
 ```
 aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```
 
+![dynamodb list-tables](/images/week-1/dynamodb-list-tables.png)
+
+
 # Get Records
 
 ```
 aws dynamodb scan --table-name cruddur_cruds --query "Items" --endpoint-url http://localhost:8000
 ```
+
+![dynamodb table records](/images/week-1/dynamodb-table-records.png)
 
 i also installed postgres client into the gitpod.yml file and made sure it installs on start gitpod startup
 
