@@ -49,7 +49,7 @@ I worked with gitpod and it is gradually becoming efficient for me.
 ![](/images/week-1/Build-python-flask-Docker-image.png)
 
 
-I ran into some error which I finally debugged using the environment variables
+I ran into some errors which I finally debugged using the environment variables
 
 > ErrorPage
 ![Error 404](/images/week-1/flask-404.png)
@@ -89,22 +89,31 @@ networks:
     driver: bridge
     name: cruddur
 ```
-I ran docker-compose up to build both the front-end and backend flask and previewd it on port 3000
+<br>
+
+### I ran docker-compose up to build both the front-end and backend flask and previewd it on port 3000
 
 ### Below are the screen shots of both the frontend and the backend applications as I ran the docker commands also exposing the  ports.
 
-> Backend
+<br>
+
+## Backend
 ![Backend](/images/week-1/crud-backend-container-image.png)
-> Frontend
+## Frontend
 ![Frontend](/images/week-1/crud-frontend-container-image.png)
 
+<br>
 
+### I edited the files following the video tutorial by andrew brown to implement and display notifications. Here is a screenshot of my modified Notifications page. 
 
-I edited the files following the video tutorial by andrew brown to implement and display notifications 
+<br>
 
-<img width="1435" alt="Screenshot 2023-02-24 at 7 28 51 PM" src="https://user-images.githubusercontent.com/88699664/221262597-b86996df-0ff3-444c-a0c2-986bde5d00b2.png">
+## Notifications Page
+![Notifications-page](/images/week-1/edited-notifications-page.png)
 
-I edited the docker-compose file and added the code for dynamodb and posgres and ran docker-compose up. subsequetly ran the following command in my aws cli below;
+<br>
+
+> I edited the docker-compose file and added the code for dynamodb and posgres and ran docker-compose up. subsequetly ran the following command in my aws cli below;
 
 # Create a table
 
