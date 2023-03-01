@@ -154,7 +154,7 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 # Get Records
 
 ```
-aws dynamodb scan --table-name cruddur_cruds --query "Items" --endpoint-url http://localhost:8000
+aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://localhost:8000
 ```
 
 ![dynamodb table records](/images/week-1/dynamodb-table-records.png)
