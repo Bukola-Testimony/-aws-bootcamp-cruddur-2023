@@ -1,10 +1,10 @@
 # Week 1 — App Containerization
 
-we started off the live stream with guest tutors Edith pucilla and james spurin.
+- we started off the live stream with guest tutors Edith pucilla and james spurin.
 
-I learnt about docker hub, this is  where docker images are pushed to or pulled from and its free to use
+- I learnt about docker hub, this is  where docker images are pushed to or pulled from and its free to use
 
-I learnt how to create a dockerfile and wrote my first dockerfile for back-end and front-end. see code below;
+- I learnt how to create a dockerfile and wrote my first dockerfile for back-end and front-end. see code below;
 
 ## Bank-end Dockerfile
 ```
@@ -43,13 +43,14 @@ RUN npm install
 EXPOSE ${PORT}
 CMD ["npm", "start"]
 ```
-I worked with gitpod and it is gradually becoming efficient for me.
+- I worked with gitpod which has become pretty efficient for me.
 
 ![](/images/week-1/gitpod-workspaces-dockerfile-backend.png)
 ![](/images/week-1/Build-python-flask-Docker-image.png)
 
+<br>
 
-I ran into some errors which I finally debugged using the environment variables
+- I ran into some errors which I finally debugged using the environment variables
 
 > ErrorPage
 ![Error 404](/images/week-1/flask-404.png)
@@ -58,9 +59,13 @@ I ran into some errors which I finally debugged using the environment variables
 
 
 
-I built my first image by running this command build -t  backend-flask ./backend-flask in the workspace/aws-bootcamp-cruddur-2023 to build the backend flask.  
+- I built my first image by running the below command to build the backend flask: 
+```
+build -t  backend-flask ./backend-flask 
+```
+  
 
-Instead of writing multiple docker files as seen above, i was introduced to docker-compose. The purpose of docker-compose file is to allow us to run multiple containers at the same time. see code below;
+- I was also introduced to docker-compose. The purpose of docker-compose file is to allow us to run multiple containers at the same time. see code below;
 
 ```
 version: "3.8"
@@ -91,9 +96,9 @@ networks:
 ```
 <br>
 
-### I ran docker-compose up to build both the front-end and backend flask and previewd it on port 3000
+- I ran "docker-compose up" to build both the front-end and backend flask and previewd it on port 3000
 
-### Below are the screen shots of both the frontend and the backend applications as I ran the docker commands also exposing the  ports.
+- Below are the screen shots of both the frontend and the backend applications as I ran the docker commands also exposing the  ports.
 
 <br>
 
@@ -104,7 +109,8 @@ networks:
 
 <br>
 
-### I edited the files following the video tutorial by andrew brown to implement and display notifications. Here is a screenshot of my modified Notifications page. 
+- I edited the files following the video tutorial by andrew brown to implement and display the notifications page. 
+- See screenshot of my modified Notifications page. 
 
 <br>
 
@@ -113,7 +119,8 @@ networks:
 
 <br>
 
-> I edited the docker-compose file and added the code for dynamodb and posgres and ran docker-compose up. subsequetly ran the following command in my aws cli below;
+- I edited the docker-compose file and added the code for dynamodb and posgres and ran "docker-compose up". 
+- Subsequetly I ran the following command in my aws cli:
 
 # Create a table
 
@@ -159,9 +166,27 @@ aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://local
 
 ![dynamodb table records](/images/week-1/dynamodb-table-records.png)
 
-i also installed postgres client into the gitpod.yml file and made sure it installs on start gitpod startup
+- I installed postgress using the following code. I also added the code to gitpod.yml
 
-i checked that the postgress was working by logging into postgres by running `psql -Upostgres --host localhost` and inputed the password i created in the. 
-i also installed postgres client into the gitpod.yml file and made sure it installs on start gitpod startupclient extention. inputed /l to check the list of tables
+```yaml
+- name: postgres
+    init: |
+      curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+      echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+      sudo apt update
+      sudo apt install -y postgresql-client-13 libpq-dev
+```
+
+
+- I connected to my postgress client with the following command:
+- I checked the tables too. All was working well.
+
+```
+psql -Upostgres  -h localhost 
+
+```
+Password: password
+
+![Postgress-table](/images/week-1/postgress-table.png)
 
 I learnt the top 10 container security best practices 
