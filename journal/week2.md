@@ -56,6 +56,14 @@ After running "docker-compose up" I was able to view the Datasets and trace acti
 
 > ![](/images/week-2/honeycomb-awsbootcamp-trace1-mock-data.png)
 
+<br>
+
+## I also learnt some troubleshoot skills for honeycomb API:
+- Run : env | grep HONEY
+- copy env API keys
+- Next, Go to the url : honeycomb-whoami.glitch.me
+- Paste the API keys in the search box.  
+
 
 
 
