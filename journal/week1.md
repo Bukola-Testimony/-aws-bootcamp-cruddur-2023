@@ -6,7 +6,7 @@
 
 - I learnt how to create a dockerfile and wrote my first dockerfile for back-end and front-end. see code below;
 
-## Bank-end Dockerfile
+## Backend Dockerfile
 ```
 FROM python:3.10-slim-buster
 # Inside container
