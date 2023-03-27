@@ -31,7 +31,7 @@ import watchtower
 import logging
 from time import strftime
 
-# Configuring Logger to Use CloudWatch
+Configuring Logger to Use CloudWatch
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.DEBUG)
 console_handler = logging.StreamHandler()
