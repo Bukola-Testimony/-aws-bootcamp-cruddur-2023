@@ -11,7 +11,7 @@ class UserActivities:
       now = datetime.now(timezone.utc).astimezone()
       
       if user_handle == None or len(user_handle) < 1:
-        model['errors'] = ['blank_user_handle']
+        model['errors'] = ['blank_user_handle']    
       else:
         now = datetime.now()
         results = [{
@@ -25,13 +25,14 @@ class UserActivities:
       
       subsegment = xray_recorder.begin_subsegment('bukola-mock-data')
     # xray ---
-    dict = {
-      "now": now.isoformat(),
-      "results-size": len(model['data'])
+      dict = {
+       "now": now.isoformat(),
+       "results-size": len(model['data'])
     }
-    subsegment.put_metadata('key', dict, 'namespace')
-      xray_recorder.end_subsegment()
+    # subsegment.put_metadata('key', dict, 'namespace')
+    #   xray_recorder.end_subsegment()
     finally:  
     # # Close the segment
       xray_recorder.end_subsegment()
-    return model
+
+      return model
