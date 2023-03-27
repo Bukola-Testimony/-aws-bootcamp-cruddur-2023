@@ -162,3 +162,69 @@ Here only the frontend port was running. I did some troubleshooting by checking 
 ![](/images/week-2/aws-xray-traces-query3.png)
 ![](/images/week-2/aws-xray-traces-query.png)
 
+<br>
+
+
+# CloudWatch Logs
+
+To Install watchtower, the following command was added to the requirements.txt file.
+```
+watchtower
+```
+The follwing command was used to install the requirements.txt file.
+```bash
+pip install -r requirements.txt
+```
+
+I added the following lines to app.py
+```python
+import watchtower
+import logging
+from time import strftime
+```
+
+```python
+# Configuring Logger to Use CloudWatch
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("some message")
+@app.after_request
+def after_request(response):
+```
+
+
+```python
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+```
+
+I Set the env variables in the backend-flask for docker-compose.yaml
+
+```yaml
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+```      
+After all the additions, I ran the `docker-compose up` command.
+
+
+![](/images/week-2/cloudwatch-ports-gitpod.png)
+
+![](/images/week-2/cloudwatch-gitpod-backend.png)
+
+### I went on to check the logs created in AWS Cloudwatch.
+### Log group "Cruddur"
+![](/images/week-2/cloudwatch-aws-logs-group.png)
+
+### Logstream
+![](/images/week-2/cloudwatch-aws-logstream1.png)
+
+### Log events
+![](/images/week-2/cloudwatch-aws-log-events1.png)
+
+![](/images/week-2/cloudwatch-aws-log-events2.png)
