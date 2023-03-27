@@ -22,7 +22,7 @@ i started off week 0 by registering for all the tools that will be required for 
 
 <br>
 
-> ![aws-bootcamp-cruddur-2023](/images/budget.png)
+> ![aws-bootcamp-cruddur-2023](/images/week-0/budget.png)
 
 
 <br >
@@ -31,7 +31,7 @@ i started off week 0 by registering for all the tools that will be required for 
 
 - I drew the logical diagram. see screenshot and link below;
 
- ![aws-bootcamp-cruddur-2023](/images/aws-bootcamp-lucid-chart2.png)
+ ![aws-bootcamp-cruddur-2023](/images/week-0/aws-bootcamp-lucid-chart2.png)
 
 <br>
 
@@ -42,7 +42,7 @@ i started off week 0 by registering for all the tools that will be required for 
 # conceptual/napkin
 - i drew the conceptual diagram, see screenshot below and link to my lucid chart
 
-![aws-bootcamp-cruddur-2023](/images/Conceptual-diagram.png)
+![aws-bootcamp-cruddur-2023](/images/week-0/Conceptual-diagram.png)
 
 > [Link to conceptual/napkin](https://lucid.app/lucidchart/c229e42c-756b-4a35-8628-20a68aabecdd/edit?viewport_loc=-308%2C190%2C2220%2C1000%2C0_0&invitationId=inv_a74b1f8d-4c38-4ae0-8699-807b7d8140d6)
 
