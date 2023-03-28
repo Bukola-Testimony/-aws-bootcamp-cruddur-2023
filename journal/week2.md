@@ -296,7 +296,7 @@ I clicked on the backend port and added the test rollbar API enpoint: /rollbar/t
 #### Browser screenshot
 ![](/images/week-2/rollbar-test-helloworld.png)
 
-- I logged back into rollbar and clicked on items. At first the items were not showing, I logged out of gitpod and logged back in. I also ran `docker compose up` command again and went back to check on Rollbar. Now the items were showing as seen in the screenshots below.
+#### I logged back into rollbar and clicked on items. At first the items were not showing, I logged out of gitpod and logged back in. I also ran `docker compose up` command again and went back to check on Rollbar. Now the items were showing as seen in the screenshots below.
 
 ![](/images/week-2/rollbar-item1.png)
 ![](/images/week-2/rollbar-item2.png)
