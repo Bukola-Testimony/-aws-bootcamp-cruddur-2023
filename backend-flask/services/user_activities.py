@@ -26,13 +26,12 @@ class UserActivities:
       subsegment = xray_recorder.begin_subsegment('bukola-mock-data')
     # xray ---
       dict = {
-       "now": now.isoformat(),
-       "results-size": len(model['data'])
-    }
-    # subsegment.put_metadata('key', dict, 'namespace')
-    #   xray_recorder.end_subsegment()
-    finally:  
-    # # Close the segment
+        "now": now.isoformat(),
+        "results-size": len(model['data'])
+      }
+      subsegment.put_metadata('key', dict, 'namespace')
       xray_recorder.end_subsegment()
-
-      return model
+    finally:  
+    #  # Close the segment
+      xray_recorder.end_subsegment()
+    return model
