@@ -228,3 +228,77 @@ After all the additions, I ran the `docker-compose up` command.
 ![](/images/week-2/cloudwatch-aws-log-events1.png)
 
 ![](/images/week-2/cloudwatch-aws-log-events2.png)
+
+<br>
+
+# Rollbar Implementation
+
+I Created a new project in Rollbar 
+
+Added the following code to requirements.txt file
+```
+blinker
+rollbar
+```
+Next, cd into backend flask and run the following command to install rollbar:
+```bash
+pip install -r requirements.txt 
+```
+
+I logged into rollbar and copied my token, then set the access token on gitpod with an env variable.
+```
+export ROLLBAR_ACCESS_TOKEN=""
+gp env ROLLBAR_ACCESS_TOKEN=""
+```
+
+I added the following code to `app.py` file to import rollbar.
+```python
+import rollbar
+import rollbar.contrib.flask
+from flask import got_request_exception
+```
+
+I added the following to initialized env variables in `app.py`file.
+
+```python
+       rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+@app.before_first_request
+def init_rollbar():
+    """init rollbar module"""
+    rollbar.init(
+        # access token
+        rollbar_access_token,
+        # environment name
+        'production',
+        # server root directory, makes tracebacks prettier
+        root=os.path.dirname(os.path.realpath(__file__)),
+        # flask already sets up logging
+        allow_logging_basic_config=False)
+
+    # send exceptions from `app` to rollbar, using flask's signal system.
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+```
+
+I also add the following endpoint to `app.py` file. This is to test rollbar.
+
+```python
+@app.route('/rollbar/test')
+def rollbar_test():
+    rollbar.report_message('Hello World!', 'warning')
+    return "Hello World!"
+```
+Next I tested the Rollbar settings by running the command: `docker compose up` 
+
+![](/images/week-2/rollbar-gitpod.png)
+
+I clicked on the backend port and added the test rollbar API enpoint: /rollbar/test
+
+#### Browser screenshot
+![](/images/week-2/rollbar-test-helloworld.png)
+
+- I logged back into rollbar and clicked on items. At first the items were not showing, I logged out of gitpod and logged back in. I also ran `docker compose up` command again and went back to check on Rollbar. Now the items were showing as seen in the screenshots below.
+
+![](/images/week-2/rollbar-item1.png)
+![](/images/week-2/rollbar-item2.png)
+![](/images/week-2/rollbar-item3.png)
+![](/images/week-2/rollbar-item4.png)
