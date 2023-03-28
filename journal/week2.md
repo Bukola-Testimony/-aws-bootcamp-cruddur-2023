@@ -160,9 +160,15 @@ Here only the frontend port was running. I did some troubleshooting by checking 
 ![](/images/week-2/aws-xray-group-traces.png)
 ![](/images/week-2/aws-xray-traces-query-bukola-mockdata.png)
 ![](/images/week-2/aws-xray-traces-query3.png)
-![](/images/week-2/aws-xray-traces-query.png)
 
-<br>
+
+- I implemented some x-ray subsegments
+
+![](/images/week-2/aws-xray-traces-subsegment.png)
+
+![](/images/week-2/aws-xray-traces-subsegment2.png)
+
+<br>        
 
 
 # CloudWatch Logs
